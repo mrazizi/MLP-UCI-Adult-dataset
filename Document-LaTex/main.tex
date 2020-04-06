@@ -62,7 +62,36 @@
 
 
 % 1
-\section{}
+\section{
+راهکاری برای پیش‌پردازش داده‌ها
+}
+
+داده‌ها با استفاده از کتابخانه pandas بارگذاری کرده و از آن‌جایی که ستون‌های داده‌ها نام ندارد، ابتدا با توجه به توضیحات دیتاست، یک لیست برای نام ستون‌ها تعریف کرده و این نام‌ها را به ستون‌های دیتافریم بارگذاری شده اضافه می‌کنیم. لیست این نام‌ها به ترتیب برابر است با:
+
+\begin{latin}
+\begin{lstlisting}
+["age", "workclass", "fnlwgt", "education", "education-num", 
+"marital-status", "occupation", "relationship", "race", "sex", 
+"capital-gain", "capital-loss", "hours-per-week", "native-country", "label"]
+\end{lstlisting}
+\end{latin}
+
+ستون آخر که مربوط به برچسب داده‌است با با نام label نام‌گذاری کرده‌ایم. \\
+
+
+سپس یک دیکشنری تعریف می‌کنیم که هر دوتایی کلید/مقدار آن، خود یک دیکشنری است. برای مثال به ازای کلید label، دیکشنری زیر را داریم:
+
+\begin{latin}
+\begin{lstlisting}
+'label': {'<=50K':0, '>50K': 1}
+\end{lstlisting}
+\end{latin}
+
+به ازای تمامی مقادیر تمامی ستون‌هایی که مقدار عددی ندارند، این دیکشنری را تعریف کرده و به هر مقدار اسمی، یک عدد نسبت می‌دهیم. این اعداد از برای هر متغیر از ۰ شروع شده و یک واحد یک واحد افزایش می‌یابد. 
+
+در نهایت با استفاده از تابع replace از کتابخانه pandas، طبق دیکشنری تعریف شده، مقادیر اسمی را به مقادیر عددی تبدیل می‌کنیم.
+
+
 
 
 
@@ -71,15 +100,27 @@
 \let\oldsection\section
 \renewcommand\section{\clearpage\oldsection}
 
-%\begin{center}
-%	\includegraphics[scale=0.6]{1.png} 
-%\end{center}    
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+% 2
+\section{
+بارگذاری داده‌ها و انجام پیش‌پردازش
+}
+
+\begin{center}
+	\includegraphics[scale=0.35]{df.png} 
+\end{center}    
 
 
+\begin{center}
+	\includegraphics[scale=0.35]{df_numeric.png} 
+\end{center}    
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\section*{منابع}
 
