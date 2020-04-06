@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2019.8.11)  6 APR 2020 23:55
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2019.8.11)  7 APR 2020 00:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1856,19 +1856,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--114
 [2] [3
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
  [4
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 171.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 171.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 173.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 173.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
  ) 
 Here is how much of TeX's memory you used:
  22701 strings out of 493005
