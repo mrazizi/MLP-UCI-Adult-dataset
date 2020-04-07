@@ -166,6 +166,8 @@ y_train shape: (32561,)
 
 انتخاب ساختار شبکه عصبی بر اساس آزمون و خطا است. در تمامی آزمون‌ها از تابع فعال‌سازی relu در لایه‌های میانی و از تابع فعال‌سازی sigmoid در لایه پایانی استفاده می‌کنیم. دلیل استفاده از تابع relu این است که به طور کلی مشاهده شده است که در مسائل مختلف، نتیجه بهتری می‌دهد. دلیل استفاده از تابع فعال‌سازی sigmoid در لایه‌ آخر این است که نیاز داریم که خروجی بین ۰ و ۱ باشد. در رابطه با تعداد لایه‌ها و تعداد نورون‌های هر لایه، آزمایش‌هایی انجام داده‌ایم که به شرح زیر است:
 
+
+
 آزمون ۱:
 
 \begin{latin}
@@ -187,9 +189,24 @@ _________________________________________________________________
 
 \begin{latin}
 \begin{lstlisting}
-loss: 0.2874 - accuracy: 0.8665 - val_loss: 0.3137 - val_accuracy: 0.8575
+----- Training -----
+loss: 0.2734 / accuracy: 0.8729 / precision: 0.765 / recall: 0.6775 
+
+Confusion Matrix - for train:
+TP = 4228.0 	 FP = 1298.0
+FN = 2013.0 	 TN = 18509.0
+
+
+----- Validation -----
+loss: 0.3252 / accuracy: 0.8554 / precision: 0.7232 / recall: 0.6662 
+
+Confusion Matrix - for validation:
+TP = 1066.0 	 FP = 408.0
+FN = 534.0 	 TN = 4505.0
 \end{lstlisting}
 \end{latin}
+
+\bigbreak
 
 آزمون ۲:
 
@@ -211,9 +228,25 @@ _________________________________________________________________
 
 \begin{latin}
 \begin{lstlisting}
-loss: 0.2821 - accuracy: 0.8692 - val_loss: 0.3297 - val_accuracy: 0.8518
+----- Training -----
+loss: 0.2835 / accuracy: 0.8684 / precision: 0.7566 / recall: 0.6645
+
+Confusion Matrix - for train:
+TP = 4147.0 	 FP = 1334.0
+FN = 2094.0 	 TN = 18473.0
+
+
+----- Validation -----
+loss: 0.3238 / accuracy: 0.8537 / precision: 0.7273 / recall: 0.6469
+
+Confusion Matrix - for validation:
+TP = 1035.0 	 FP = 388.0
+FN = 565.0 	 TN = 4525.0
 \end{lstlisting}
 \end{latin}
+
+\bigbreak
+
 
 آزمون ۳:
 
@@ -237,9 +270,24 @@ _________________________________________________________________
 
 \begin{latin}
 \begin{lstlisting}
-loss: 0.2755 - accuracy: 0.8718 - val_loss: 0.3299 - val_accuracy: 0.8541
+----- Training -----
+loss: 0.2700 / accuracy: 0.8738 / precision: 0.7683 / recall: 0.6779
+
+Confusion Matrix - for train:
+TP = 4231.0 	 FP = 1276.0
+FN = 2010.0 	 TN = 18531.0
+
+
+----- Validation -----
+loss: 0.3274 / accuracy: 0.8534 / precision: 0.7391 / recall: 0.6231
+
+Confusion Matrix - for validation:
+TP = 997.0 	 FP = 352.0
+FN = 603.0 	 TN = 4561.0
 \end{lstlisting}
 \end{latin}
+
+\bigbreak
 
 آزمون ۴:
 
@@ -247,9 +295,24 @@ loss: 0.2755 - accuracy: 0.8718 - val_loss: 0.3299 - val_accuracy: 0.8541
 
 \begin{latin}
 \begin{lstlisting}
-loss: 0.3006 - accuracy: 0.8605 - val_loss: 0.3190 - val_accuracy: 0.8500
+----- Training -----
+loss: 0.3011 / accuracy: 0.8607 / precision: 0.7466 / recall: 0.6336
+
+Confusion Matrix - for train:
+TP = 3954.0 	 FP = 1342.0
+FN = 2287.0 	 TN = 18465.0
+
+
+----- Validation -----
+loss: 0.3199 / accuracy: 0.8503 / precision: 0.7181 / recall: 0.6431
+
+Confusion Matrix - for validation:
+TP = 1029.0 	 FP = 404.0
+FN = 571.0 	 TN = 4509.0
 \end{lstlisting}
 \end{latin}
+
+\bigbreak
 
 
 آزمون‌های دیگر:
@@ -319,7 +382,16 @@ val_accuracy: 0.8575
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 5
+\section{
+بهینه‌ساز مدل و معیارهای ارزیابی
+}
 
+بهینه‌ساز Adam و تابع هزینه \lr{Binary CrossEntrophy} - همان‌طور که در بخش ۳ توضیح داده‌شد - انتخاب شده است. \\
+
+تمامی معیارهای ارزیابی مدل، در مجموعه معیارهای تنسورفلو وجود دارد. برای معیار ماتریس درهم‌ریختگی نیز، ۴ معیار TP، FP و TN و TP را از مدل گرفته و کنار هم قرار می‌دهیم. تمامی این مقادیر به ازای هر آزمایش، در بخش ۳ داکیومنت نوشته شده است.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\section*{منابع}
 
