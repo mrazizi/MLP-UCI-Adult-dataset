@@ -15,6 +15,7 @@
 \usepackage{amsfonts}       		% blackboard math symbols
 \usepackage{nicefrac}       		% compact symbols for 1/2, etc.
 \usepackage{microtype}      		% microtypography
+\usepackage{booktabs}
 %\usepackage{breqn}			% dmath
 \usepackage{listings}
 \usepackage{amsmath}     		% multiline
@@ -428,7 +429,9 @@ train df: (32561, 107)
 \end{lstlisting}
 \end{latin}
 
-در بخش در رابطه با آموزش شبکه با استفاده از داده‌های آموزش و بررسی کیفیت عملکرد شبکه در هر epoch توسط داده‌های ارزیابی صحبت شد. تعداد epoch آموزش برابر ۱۰ قرار گرفته است که با توجه به نمودارهایی که در بخش ۴ آورده شده است، مشاهده می‌شود که تغییرات دقت و مقدار تابع زیان برای داده‌های ارزیابی تقریبا به ۰ رسیده است. یعنی شبکه به اندازه کافی آموزش دیده است.
+در بخش در رابطه با آموزش شبکه با استفاده از داده‌های آموزش و بررسی کیفیت عملکرد شبکه در هر epoch توسط داده‌های ارزیابی صحبت شد. تعداد epoch آموزش برابر ۱۰ قرار گرفته است که با توجه به نمودارهایی که در بخش ۴ آورده شده است، مشاهده می‌شود که تغییرات دقت و مقدار تابع زیان برای داده‌های ارزیابی تقریبا به ۰ رسیده است. یعنی شبکه به اندازه کافی آموزش دیده است. \\
+
+در نهایت داده‌های آزمون نیز scale می‌شوند.
 
 
 
@@ -440,19 +443,281 @@ train df: (32561, 107)
 evaluate
 }
 
+نتیجه صدا زدن تابع evaluate بر روی داده‌های تست به صورت زیر است:
+
+\begin{latin}
+\begin{lstlisting}
+----- Test -----
+loss: 4110.4199 / accuracy: 0.7914 / precision: 0.8516 / recall: 0.1417 / 
+f1_score = 0.6785
+
+Confusion Matrix - for validation:
+TP = 545.0 	 FP = 95.0
+FN = 3301.0 	 TN = 12340.0
+\end{lstlisting}
+\end{latin}
+
+مشاهده می‌شود که دقت مدل ۷۹ درصد است که مورد قبول است و تفاوت چندانی با دقت داده‌های ارزیابی ندارد. مقدار precision نیز قابل قبول و مانند داده‌های ارزیابی است. تنها مورد منفی، مقدار بسیار پایین recall است. همان‌طور که در ماتریس پریشانی نیز دیده می‌شود، تعداد FN ها بر روی داده‌های تست بسیار بالا است. یعنی مدل داده‌های زیادی را به اشتباه منفی می‌پندارد. این رفتار ممکن است به دلیل تفاوت اساسی بین داده‌های آزمون و داده‌های آموزش باشد یا به این دلیل باشد که تعداد‌ داده‌های با برچسب منفی در دیتاست آموزشی بیشتر بوده است و مدل به درستی نتوانسته است رابطه موجود بین ورودی و خروجی را تشخیص دهد. \\
+
+۵ نمونه‌ از داده‌هایی که مدل پیش‌بینی می‌کند کمتر از ۵۰ هزار دلار درآمد خواهند داشت:
+
+
+\begin{latin}
+\begin{table}[!hbp]
+\centering
+\begin{tabular}{@{}llllll@{}}
+\toprule
+\#                      & 0                 & 1                  & 4               & 5               & 6               \\ \midrule
+\textbf{age}            & 25                & 38                 & 18              & 34              & 29              \\
+\textbf{workclass}      & Private           & Private            & ?               & Private         & ?               \\
+\textbf{fnlwgt}         & 226802            & 89814              & 103497          & 198693          & 227026          \\
+\textbf{education}      & 11th              & HS-grad            & Some-college    & 10th            & HS-grad         \\
+\textbf{education-num}  & 7                 & 9                  & 10              & 6               & 9               \\
+\textbf{marital-status} & Never-married     & Married-civ-spouse & Never-married   & Never-married   & Never-married   \\
+\textbf{occupation}     & Machine-op-inspct & Farming-fishing    & ?               & Other-service   & ?               \\
+\textbf{relationship}   & Own-child         & Husband            & Own-child       & Not-in-family   & Unmarried       \\
+\textbf{race}           & Black             & White              & White           & White           & Black           \\
+\textbf{sex}            & Male              & Male               & Female          & Male            & Male            \\
+\textbf{capital-gain}   & 0                 & 0                  & 0               & 0               & 0               \\
+\textbf{capital-loss}   & 0                 & 0                  & 0               & 0               & 0               \\
+\textbf{hours-per-week} & 40                & 50                 & 30              & 30              & 40              \\
+\textbf{native-country} & United-States     & United-States      & United-States   & United-States   & United-States   \\
+\textbf{prediction}     & \textless{}=50K   & \textless{}=50K    & \textless{}=50K & \textless{}=50K & \textless{}=50K \\
+\textbf{true label}     & \textless{}=50K   & \textless{}=50K    & \textless{}=50K & \textless{}=50K & \textless{}=50K \\ \bottomrule
+\end{tabular}
+\end{table}
+\end{latin}
+
+\pagebreak
+
+۵ نمونه از داده‌هایی که مدل پیش‌بینی می‌کند که بالای ۵۰ هزار دلار درآمد خواهند داشت:
+
+
+\begin{latin}
+\begin{table}[!hbp]
+\centering
+\begin{tabular}{@{}llllll@{}}
+\toprule
+\#                      & 3                 & 7                 & 10                & 14                & 15                \\ \midrule
+\textbf{age}            & 44                & 63                & 65                & 48                & 43                \\
+\textbf{workclass}      & Private           & Self-emp-not-inc  & Private           & Private           & Private           \\
+\textbf{fnlwgt}         & 160323            & 104626            & 184454            & 279724            & 346189            \\
+\textbf{education}      & Some-college      & Prof-school       & HS-grad           & HS-grad           & Masters           \\
+\textbf{education-num}  & 10                & 15                & 9                 & 9                 & 14                \\
+\textbf{marital-status} & M-c-p             & M-c-p             & M-c-p             & M-c-p             & M-c-p             \\
+\textbf{occupation}     & Machine-op-inspct & Prof-specialty    & Machine-op-inspct & Machine-op-inspct & Exec-managerial   \\
+\textbf{relationship}   & Husband           & Husband           & Husband           & Husband           & Husband           \\
+\textbf{race}           & Black             & White             & White             & White             & White             \\
+\textbf{sex}            & Male              & Male              & Male              & Male              & Male              \\
+\textbf{capital-gain}   & 7688              & 3103              & 6418              & 3103              & 0                 \\
+\textbf{capital-loss}   & 0                 & 0                 & 0                 & 0                 & 0                 \\
+\textbf{hours-per-week} & 40                & 32                & 40                & 48                & 50                \\
+\textbf{native-country} & United-States     & United-States     & United-States     & United-States     & United-States     \\
+\textbf{prediction}     & \textgreater{}50K & \textgreater{}50K & \textgreater{}50K & \textgreater{}50K & \textgreater{}50K \\
+\textbf{true label}     & \textgreater{}50K & \textgreater{}50K & \textgreater{}50K & \textgreater{}50K & \textgreater{}50K \\ \bottomrule
+\end{tabular}
+\end{table}
+\end{latin}
+
+
+در جدول زیر، به جای \lr{Married-civ-spouse} ، M-c-p نوشته شده است.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% 4
+% 8
 \section{
-تصویر گراف مدل توسط Tensorboard
+بررسی تاثیر افزایش تعداد لایه‌ها بر عملکرد شبکه
 }
+
+آزمایش ۱: 
+شبکه فعلی را در نظر می‌گیریم:
+
+\begin{latin}
+\begin{lstlisting}
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 128)               13568     
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 129       
+=================================================================
+Total params: 13,697
+Trainable params: 13,697
+Non-trainable params: 0
+_________________________________________________________________
+\end{lstlisting}
+\end{latin}
+
+تغییر وزن‌ها در لایه‌های مختلف با استفاده از Tensorboard به صورت زیر است:
+
+\begin{center}
+	\includegraphics[scale=0.60]{model_a_dense_1.png} 
+\end{center}    
+
+\begin{center}
+	\includegraphics[scale=0.60]{model_a_dense.png} 
+\end{center}    
+
+مشاهده می‌شود که با گذر زمان (نمودار افقی)، وزن‌ها به اندازه کافی تغییر می‌کنند. \\
+
+اکنون شبکه‌ای طراحی می‌کنیم که تعداد لایه‌های میانی زیادی دارد. در شبکه زیر، تابع فعال‌سازی همه لایه‌ها به جز لایه آخر، tanh است. تابع فعال‌سازی لایه آخر sigmoid است. دلیل استفاده از تابع فعال‌سازی tanh به جای relu این است که تابع فعال‌سازی relu در مقابل \lr{vanishing gradient} نسبتا مقاوم است.
+
+\begin{latin}
+\begin{lstlisting}
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 128)               13568     
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_2 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_3 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_4 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_5 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_6 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_7 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_8 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_9 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dense_10 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dense_11 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dense_12 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dense_13 (Dense)             (None, 1)                 129       
+=================================================================
+Total params: 211,841
+Trainable params: 211,841
+Non-trainable params: 0
+_________________________________________________________________
+\end{lstlisting}
+\end{latin}
+
+پس از ۱۰ epoch، دقت این شبکه بر روی داده‌های ارزیابی به ۸۴ درصد رسیده است و این به این معنی است که شبکه آموزش دیده است.
+
+تغییرات وزن‌های شبکه را در اولین لایه شبکه بررسی می‌کنیم.
+
+\begin{center}
+	\includegraphics[scale=0.60]{tanh.png} 
+\end{center}    
+
+مشاهده می‌شود که تغییرات وزن \lr{kernel\_0} نسبتا کمتر شده است. این به این دلیل است که مقدار گرادیانی که از خروجی گرفته می‌شود، هر چه به لایه‌های ابتدایی‌تر می‌رسد، تاثیرش کمتر می‌شود. به این اتفاق \lr{vanishing gradients} می‌گویند.
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% 4
+% 9
 \section{
-تصویر گراف مدل توسط Tensorboard
+بررسی بیش‌برازش مدل
 }
+
+
+نمودارهای میزان دقت و مقدار تابع زیان مدل، در طول epoch در بخش ۴ آمده است. با توجه به این نمودارها، واضح است که هم میزان تابع زیان برای داده‌های آموزشی پایین آمده است و هم میزان تابع زیان برای داده‌های ارزیابی. در نتیجه، مدل دچار بیش‌برازش نشده است. \\
+
+برای این که یک مدل را دچار بیش‌برازش کنیم، می‌توانیم مدل را به قدری بزرگ کنیم که مدل به جای یادگیری ارتباط واقعی بین ورودی و خروجی، برچسب هر داده ورودی را حفظ کند. برای این کار هم تعداد لایه‌ها را افزایش داده و هم تعداد نورون‌های لایه میانی را.
+
+مدل‌های مختلفی مورد بررسی قرار گرفت. از مدلی که شامل ۲۰ لایه که هر لایه ۱۲۸ نورون دارد تا نورونی شامل ۳ لایه که دو لایه اولیه هر کدام ۱۰۰۰ نورون دارند. اما هیچ یک دچار بیش‌برازش نشد. همچنین، تعداد epoch آموزش هم زیاد شد اما بیش‌برازش ایجاد نشد.  اما نکته کلی بیش‌برازش - همان طور که مطرح شد - این است که مدل بیش از اندازه برای داده‌ها بزرگ است. 
+
+آخرین مدلی که بررسی شد، مدل زیر است.
+
+\begin{latin}
+\begin{lstlisting}
+Model: "sequential_2"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_4 (Dense)              (None, 10000)             1060000   
+_________________________________________________________________
+dense_5 (Dense)              (None, 10000)             100010000 
+_________________________________________________________________
+dense_6 (Dense)              (None, 1)                 10001     
+=================================================================
+Total params: 101,080,001
+Trainable params: 101,080,001
+Non-trainable params: 0
+_________________________________________________________________
+\end{lstlisting}
+\end{latin}
+
+که به دلیل تعداد پارامتر بسیار زیادش، به مدت یک ساعت مورد آموزش قرار گرفت و نتیجه نهایی، ۸۳ درصد دقت در آموزش و ۸۲ درصد دقت در ارزیابی بود و بیش برازش نشد.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% 10
+\section{
+بهترین مدل برای داده‌ها
+}
+
+بهترین مدل، در بخش ۳ معرفی شد. در اینجا نیز مجددا ساختار مدل و نتایج آن آورده می‌شود:
+
+\begin{latin}
+\begin{lstlisting}
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_12 (Dense)             (None, 128)               13568     
+_________________________________________________________________
+dense_13 (Dense)             (None, 1)                 129       
+=================================================================
+Total params: 13,697
+Trainable params: 13,697
+Non-trainable params: 0
+_________________________________________________________________
+\end{lstlisting}
+\end{latin}
+
+
+\begin{latin}
+\begin{lstlisting}
+----- Training -----
+loss: 0.2734 / accuracy: 0.8729 / precision: 0.765 / recall: 0.6775 /
+f1_score = 0.6885
+
+Confusion Matrix - for train:
+TP = 4228.0 	 FP = 1298.0
+FN = 2013.0 	 TN = 18509.0
+
+
+----- Validation -----
+loss: 0.3252 / accuracy: 0.8554 / precision: 0.7232 / recall: 0.6662 /
+f1_score = 0.6799
+
+Confusion Matrix - for validation:
+TP = 1066.0 	 FP = 408.0
+FN = 534.0 	 TN = 4505.0
+
+----- Test -----
+loss: 4110.4199 / accuracy: 0.7914 / precision: 0.8516 / recall: 0.1417 / 
+f1_score = 0.6785
+
+Confusion Matrix - for validation:
+TP = 545.0 	 FP = 95.0
+FN = 3301.0 	 TN = 12340.0
+\end{lstlisting}
+\end{latin}
+
+وزن‌های مدل نهایی نیز در فایل \lr{model.h5} ذخیره شده است که در آینده می‌توان از آن‌ها استفاده کرد.
+
+وزن‌های آزمایش‌های دیگر نیز ذخیره شده‌اند، اما به دلیل این که حجم فایل تحویلی بیش از اندازه زیاد نشود، همراه فایل‌ها تحویل داده نمی‌شود و در صورت نیاز، در تحویل حضوری استفاده خواهند شد.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\section*{منابع}
 

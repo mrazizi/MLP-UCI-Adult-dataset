@@ -5,5 +5,6 @@
 \BOOKMARK [1][-]{section.5}{ بهینه‌ساز مدل و معیارهای ارزیابی }{}% 5
 \BOOKMARK [1][-]{section.6}{ تقسیم داده‌ها به سه دسته }{}% 6
 \BOOKMARK [1][-]{section.7}{\040evaluate\040}{}% 7
-\BOOKMARK [1][-]{section.8}{ تصویر گراف مدل توسط Tensorboard }{}% 8
-\BOOKMARK [1][-]{section.9}{ تصویر گراف مدل توسط Tensorboard }{}% 9
+\BOOKMARK [1][-]{section.8}{ بررسی تاثیر افزایش تعداد لایه‌ها بر عملکرد شبکه }{}% 8
+\BOOKMARK [1][-]{section.9}{ بررسی بیش‌برازش مدل }{}% 9
+\BOOKMARK [1][-]{section.10}{ بهترین مدل برای داده‌ها }{}% 10

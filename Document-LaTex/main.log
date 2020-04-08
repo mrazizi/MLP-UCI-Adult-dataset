@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2019.8.11)  8 APR 2020 02:51
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2019.8.11)  8 APR 2020 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1043,24 +1043,24 @@ lmroman10-bolditalic},ItalicFont={lmroman10-italic},SmallCapsFont={lmromancaps1
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1129,7 +1129,7 @@ LaTeX Font Info:    ... okay on input line 45.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring OFF on input line 45.
+Package hyperref Info: Link coloring OFF on input line 46.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1138,15 +1138,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count285
 )
-LaTeX Info: Redefining \ref on input line 45.
-LaTeX Info: Redefining \pageref on input line 45.
-LaTeX Info: Redefining \nameref on input line 45.
+LaTeX Info: Redefining \ref on input line 46.
+LaTeX Info: Redefining \pageref on input line 46.
+LaTeX Info: Redefining \nameref on input line 46.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 45.
+LaTeX Info: Redefining \microtypecontext on input line 46.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1797,7 +1797,7 @@ File: aut_logo.png Graphic file (type QTm)
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 50.
+LaTeX Font Info:    Try loading font information for U+msa on input line 51.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1805,7 +1805,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2017/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 50.
+LaTeX Font Info:    Try loading font information for U+msb on input line 51.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1815,7 +1815,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 
 LaTeX Font Warning: Font shape `TU/XBNiloofar.ttf(0)/bx/n' undefined
-(Font)              using `TU/XBNiloofar.ttf(0)/m/n' instead on input line 59.
+(Font)              using `TU/XBNiloofar.ttf(0)/m/n' instead on input line 60.
 
 Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: TU).
@@ -1830,12 +1830,12 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 [][]
  []
 
@@ -1844,41 +1844,41 @@ File: df_numeric.png Graphic file (type QTm)
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 [][]
  []
 
 [2] [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 [][]
  []
 
 [4
 
 ] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
 [][]
  []
 
@@ -1897,40 +1897,85 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
 [][]
  []
 
 [11
 
-] [12
+]
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
+[][]
+ []
 
-] [13
-
-] [14
+[12
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 467.
- [15
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
+[][]
+ []
+
+
+Overfull \hbox (17.78511pt too wide) in paragraph at lines 468--488
+ [][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 467.
+Overfull \hbox (51.5551pt too wide) in paragraph at lines 499--519
+ [][][][] 
+ []
+
+[14]
+File: model_a_dense_1.png Graphic file (type QTm)
+ <use  "model_a_dense_1.png" >
+File: model_a_dense.png Graphic file (type QTm)
+ <use  "model_a_dense.png" >
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
+[][]
+ []
+
+[15
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+File: tanh.png Graphic file (type QTm)
+
+<use  "tanh.png" > [17]
+Underfull \hbox (badness 10000) in paragraph at lines 631--632
+[][]
+ []
+
+[18
+
+] [19
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 732.
+ [20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 732.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 467.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 467.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 732.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 732.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 467.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 732.
  ) 
 Here is how much of TeX's memory you used:
- 22709 strings out of 493005
- 421083 string characters out of 6134596
- 596147 words of memory out of 5000000
- 26413 multiletter control sequences out of 15000+600000
- 8833 words of font info for 42 fonts, out of 8000000 for 9000
+ 22717 strings out of 493005
+ 421301 string characters out of 6134596
+ 605147 words of memory out of 5000000
+ 26418 multiletter control sequences out of 15000+600000
+ 8841 words of font info for 43 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  44i,10n,68p,10403b,1701s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (15 pages).
+Output written on main.pdf (20 pages).
